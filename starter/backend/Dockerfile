@@ -2,7 +2,7 @@ FROM public.ecr.aws/docker/library/python:3.10-slim
 ENV FLASK_RUN_HOST=0.0.0.0
 
 WORKDIR /
-RUN adduser -u 1000 -D app
+RUN adduser --uid 1000 --disabled-password --gecos "" app
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
