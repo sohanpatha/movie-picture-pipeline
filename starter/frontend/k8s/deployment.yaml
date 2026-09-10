@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 113296432577.dkr.ecr.us-east-1.amazonaws.com/movie-picture-frontend:d416a3dcb1049baeae8df6034612605040e4d043
+          image: 113296432577.dkr.ecr.us-east-1.amazonaws.com/movie-picture-frontend:latest
           ports:
             - containerPort: 3000
