@@ -60,7 +60,7 @@ jobs:
           IMAGE_TAG: ${{ github.event.workflow_run.head_sha }}
         run: |
           docker build \
-            --build-arg REACT_APP_MOVIE_API_URL=http://localhost:5000 \
+            --build-arg REACT_APP_MOVIE_API_URL=http://a1b8186598bdc436aa86ad6d99471ecd-1611828878.us-east-1.elb.amazonaws.com \
             -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             ./starter/frontend
 
