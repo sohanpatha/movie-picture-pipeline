@@ -87,7 +87,6 @@ jobs:
           docker build \
             -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             ./starter/backend
-
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
   deploy:
@@ -122,6 +121,8 @@ jobs:
         working-directory: starter/backend/k8s
         run: |
           kustomize edit set image backend=113296432577.dkr.ecr.us-east-1.amazonaws.com/movie-picture-backend:${{ github.sha }}
+
+      - name: Deploy backend
         working-directory: starter/backend/k8s
         run: |
           kustomize build | kubectl apply -f -
