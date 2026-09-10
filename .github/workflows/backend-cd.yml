@@ -121,8 +121,7 @@ jobs:
       - name: Update backend image
         working-directory: starter/backend/k8s
         run: |
-          kustomize edit set image movie-picture-backend=113296432577.dkr.ecr.us-east-1.amazonaws.com/movie-picture-backend:${{ github.sha }}
-      - name: Deploy backend
+          kustomize edit set image backend=113296432577.dkr.ecr.us-east-1.amazonaws.com/movie-picture-backend:${{ github.sha }}
         working-directory: starter/backend/k8s
         run: |
           kustomize build | kubectl apply -f -
