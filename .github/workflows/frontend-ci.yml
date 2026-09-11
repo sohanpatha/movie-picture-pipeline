@@ -53,7 +53,7 @@ jobs:
 
       - name: Run tests
         working-directory: starter/frontend
-        run: npm test -- --watchAll=false
+        run: npm run test -- --watchAll=false
 
   build:
     name: Build Frontend
@@ -77,6 +77,10 @@ jobs:
         working-directory: starter/frontend
         run: npm ci
 
-      - name: Build frontend
+      - name: Run frontend tests
         working-directory: starter/frontend
-        run: npm run build
+        run: npm run test -- --watchAll=false
+
+      - name: Build frontend Docker image
+        working-directory: starter/frontend
+        run: docker build -t movie-picture-frontend:ci .
